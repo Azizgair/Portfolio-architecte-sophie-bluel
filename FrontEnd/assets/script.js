@@ -29,7 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
+fetch("http://localhost:5678/api/users/login", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        email: "sophie.bluel@test.tld",
+        password: "S0phie",
+    }),
+})
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 //connexion
 function login() {
     var email = document.getElementById('email').value;
