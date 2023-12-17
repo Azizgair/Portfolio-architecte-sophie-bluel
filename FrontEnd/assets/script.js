@@ -10,6 +10,40 @@ document.addEventListener("DOMContentLoaded", function () {
             filterGallery(category.dataset.category);
         });
     });
+    async function loadGalleryImages() {
+        try {
+            const fetchedWorks = await fetch("http://localhost:5678/api/works", {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            const works = await fetchedWorks.json();
+
+            const galleryContainer = document.querySelector(".gallery");
+            galleryContainer.innerHTML = "";
+
+            works.forEach(work => {
+                const figure = document.createElement("figure");
+                figure.classList.add("gallery-item");
+                figure.dataset.category = work.category.name; // Assuming category is available in work data
+
+                const img = document.createElement("img");
+                img.src = work.imageUrl;
+                img.alt = work.title;
+
+                const figcaption = document.createElement("figcaption");
+                figcaption.textContent = work.title;
+
+                figure.appendChild(img);
+                figure.appendChild(figcaption);
+                galleryContainer.appendChild(figure);
+            });
+        } catch (error) {
+            console.error("An error occurred while fetching works:", error);
+        }
+    }
 
     function filterGallery(category) {
         const allItems = document.querySelectorAll(".gallery-item");
@@ -29,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
+    loadGalleryImages();
 
     if (storedToken) {
         console.log("Token found:", storedToken);
