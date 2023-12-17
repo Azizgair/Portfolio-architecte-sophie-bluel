@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedToken = sessionStorage.getItem("token");
     const gallery = document.querySelector(".gallery");
     const categories = document.querySelectorAll(".filter-category");
+    var loginButton = document.getElementById('loginButton');
     categories.forEach(category => {
         category.addEventListener("click", () => {
             categories.forEach(c => c.classList.remove("active"));
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 galleryContainer.appendChild(figure);
             });
         } catch (error) {
-            console.error("An error occurred while fetching works:", error);
+            console.error("Error while fetching works:", error);
         }
     }
 
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //window.location.replace('./FrontEnd/pages/homePageEdit.html');
     }
     if (!storedToken) {
+        console.log("Token NOT found ");
         //window.location.href = '../FrontEnd/index.html';
     }
     // window.location.href = '../pages/homePageEdit.html';
@@ -102,6 +104,9 @@ async function makeAuthenticatedRequest(payload) {
         })
 }
 
+loginButton.addEventListener('click', function () {
+    login()
+});
 async function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
