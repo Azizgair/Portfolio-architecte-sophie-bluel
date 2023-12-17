@@ -23,7 +23,12 @@ async function makeAuthenticatedRequest(payload) {
             document.getElementById('error-message').style.display = 'block';
         })
 }
-export async function login() {
+
+document.getElementById('loginButton').addEventListener('click', function () {
+    login();
+});
+
+async function login() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     const payload = {
@@ -37,14 +42,4 @@ export async function login() {
         document.getElementById('error-message').style.display = 'block';
     }
 }
-
-
-/* function login() {
-    document.getElementById('login-form').style.display = 'block';
-    document.getElementById('main').style.display = 'none';
-    document.getElementById("login").style.color = "#1D6154";
-}
-document.querySelector('.login').addEventListener("click", () => {
-    login();
-}); */
 
