@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedToken = sessionStorage.getItem("token");
     const gallery = document.querySelector(".gallery");
     const categories = document.querySelectorAll(".filter-category");
-    //var loginButton = document.getElementById('loginButton');
     categories.forEach(category => {
         category.addEventListener("click", () => {
             categories.forEach(c => c.classList.remove("active"));
@@ -10,9 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             filterGallery(category.dataset.category);
         });
     });
-
     loadGalleryImages();
-
     async function loadGalleryImages() {
         try {
             const fetchedWorks = await fetch("http://localhost:5678/api/works", {
@@ -21,12 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Accept": "application/json"
                 }
             });
-
             const works = await fetchedWorks.json();
-
             const galleryContainer = document.querySelector(".gallery");
             galleryContainer.innerHTML = "";
-
             works.forEach(work => {
                 const figure = document.createElement("figure");
                 figure.classList.add("gallery-item");
@@ -34,10 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 const img = document.createElement("img");
                 img.src = work.imageUrl;
                 img.alt = work.title;
-
                 const figcaption = document.createElement("figcaption");
                 figcaption.textContent = work.title;
-
                 figure.appendChild(img);
                 figure.appendChild(figcaption);
                 galleryContainer.appendChild(figure);
@@ -46,14 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error while fetching works:", error);
         }
     }
-
     function filterGallery(category) {
         const allItems = document.querySelectorAll(".gallery-item");
         allItems.forEach(item => {
             item.style.display = "none";
         });
-
-        if (category === "tous") {
+        if (category === "Tous") {
             allItems.forEach(item => {
                 item.style.display = "block";
             });
@@ -64,5 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
-
 });
