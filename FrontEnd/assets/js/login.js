@@ -16,7 +16,7 @@ async function makeAuthenticatedRequest(payload) {
         .then((data) => {
             console.log(data)
             sessionStorage.setItem("token", data.token)
-            window.location.replace('../pages/homePageEdit.html');
+            window.location.replace('../index.html');
         })
         .catch(err => {
             console.error(err);

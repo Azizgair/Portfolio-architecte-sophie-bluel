@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const editModal = document.getElementById("editModal");
-    const openEditButton = document.querySelector(".mode-edition");
+    const openEditButton = document.querySelector(".edit-img");
 
     openEditButton.addEventListener("click", () => {
         openEditModal();
@@ -43,7 +43,7 @@ async function fetchGalleryData() {
 
             const deleteIcon = document.createElement('span');
             deleteIcon.className = 'delete-icon';
-            deleteIcon.innerHTML = '&times;';
+            deleteIcon.innerHTML = '<i class="fas fa-trash-can"></i>';
             deleteIcon.onclick = () => deleteImage(imageData.id);
             imageContainer.appendChild(deleteIcon);
             imageContainer.appendChild(image);
@@ -78,11 +78,11 @@ function deleteImage(imageId) {
             console.error('Error deleting image from the API:', error);
         });
 }
-const addImageModal = document.getElementById('addImageModal');
+/* const addImageModal = document.getElementById('addImageModal');
 function openAddImageModal() {
     editModal.style.display = "none";
     addImageModal.style.display = 'block';
 }
 function closeAddImageModal() {
     addImageModal.style.display = 'none';
-}
+} */

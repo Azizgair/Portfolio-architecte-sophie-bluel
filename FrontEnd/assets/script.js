@@ -2,11 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedToken = sessionStorage.getItem("token");
     if (storedToken) {
         console.log("Token found:", storedToken);
-        //window.location.replace('./FrontEnd/pages/homePageEdit.html');
+        authentifcate();
     }
     if (!storedToken) {
         console.log("Token NOT found ");
-        //window.location.href = '../FrontEnd/index.html';
     }
-    // window.location.href = '../pages/homePageEdit.html';
 });
+
+async function authentifcate() {
+    document.getElementById('read-mode').style.display = 'none';
+    document.getElementById('edit-mode').style.display = 'flex';
+    document.getElementById('edit-header').style.display = 'flex';
+    document.getElementById('logout').style.display = 'block';
+    document.getElementById('login').style.display = 'none';
+}

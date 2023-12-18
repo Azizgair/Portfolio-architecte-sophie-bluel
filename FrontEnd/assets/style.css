@@ -276,7 +276,7 @@ li:hover {
 .image-gallery {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
@@ -333,7 +333,8 @@ li:hover {
 }
 
 input[type="submit"],
-.login-form button {
+.login-form button,
+.modal-content button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -404,4 +405,32 @@ footer nav ul {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+#logout,
+#edit-header,
+#edit-mode {
+	display: none;
+}
+
+.edit-img {
+	cursor: pointer;
+}
+
+i.fas.fa-trash-can {
+	position: absolute;
+	top: 20px;
+	right: 7px;
+	color: white;
+	padding: 6px;
+	background-color: black;
+	border-radius: 4px;
+}
+
+.image-container {
+	position: relative;
+}
+
+.btn {
+	display: flex;
 }

@@ -30,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             works.forEach(work => {
                 const figure = document.createElement("figure");
                 figure.classList.add("gallery-item");
-                figure.dataset.category = work.category.name; // Assuming category is available in work data
-
+                figure.dataset.category = work.category.name;
                 const img = document.createElement("img");
                 img.src = work.imageUrl;
                 img.alt = work.title;
