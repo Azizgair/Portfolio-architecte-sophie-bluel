@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     openEditButton.addEventListener("click", () => {
         openEditModal();
     });
-
-
     window.addEventListener("click", (event) => {
         if (event.target === editModal) {
             editModal.style.display = "none";
@@ -78,11 +76,3 @@ function deleteImage(imageId) {
             console.error('Error deleting image from the API:', error);
         });
 }
-/* const addImageModal = document.getElementById('addImageModal');
-function openAddImageModal() {
-    editModal.style.display = "none";
-    addImageModal.style.display = 'block';
-}
-function closeAddImageModal() {
-    addImageModal.style.display = 'none';
-} */

@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const editModal = document.getElementById('editModal');
     const addImageModal = document.getElementById('addImageModal');
     document.getElementById('addButton').addEventListener('click', function () {
-        window.location.replace("./pages/debug.html");
-        // openAddImageModal();
+        //window.location.replace("./pages/debug.html");
+        openAddImageModal();
     });
     function openAddImageModal() {
         editModal.style.display = "none";
