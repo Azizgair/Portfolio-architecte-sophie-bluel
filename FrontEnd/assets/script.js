@@ -2,14 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const storedToken = sessionStorage.getItem("token");
     if (storedToken) {
         console.log("Token found:", storedToken);
-        authentifcate();
+        displayEditMode();
+
     }
-    if (!storedToken) {
+    else if (!storedToken) {
         console.log("Token NOT found ");
     }
+
 });
 
-async function authentifcate() {
+async function displayEditMode() {
     document.getElementById('read-mode').style.display = 'none';
     document.getElementById('edit-mode').style.display = 'flex';
     document.getElementById('edit-header').style.display = 'flex';

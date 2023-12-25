@@ -3,8 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const editModal = document.getElementById('editModal');
     const addImageModal = document.getElementById('addImageModal');
     document.getElementById('addButton').addEventListener('click', function () {
-        //window.location.replace("./pages/debug.html");
         openAddImageModal();
+    });
+    document.getElementById('close-addImageModal').addEventListener('click', function () {
+        closeAddImageModal();
+    });
+    document.getElementById('return-edit').addEventListener('click', function () {
+        returnToEdit();
     });
     function openAddImageModal() {
         editModal.style.display = "none";
@@ -13,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function closeAddImageModal() {
         addImageModal.style.display = 'none';
     }
+    function returnToEdit() {
+        editModal.style.display = "block";
+        addImageModal.style.display = 'none';
+    }
+
 
     document.getElementById('addImageForm').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -49,7 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Error adding new image:', error);
             });
     });
-
-
-
 });
