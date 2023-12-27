@@ -1,4 +1,4 @@
-function deleteImage(imageId) {
+export function deleteImage(imageId) {
     const imageContainer = document.querySelector(`.image-container[data-id="${imageId}"]`);
     if (imageContainer) {
         imageContainer.remove();
@@ -23,4 +23,3 @@ function deleteImage(imageId) {
             console.error('Error deleting image from the API:', error);
         });
 }
-export { deleteImage };

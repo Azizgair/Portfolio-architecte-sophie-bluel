@@ -84,18 +84,27 @@
 					</div>
 					<h2>Ajout photo</h2>
 					<form id="addImageForm">
-						<div class="add-icon"><i class="fa-solid fa-image"></i>
-							<label for="newImage" class="custom-file-label">+ Ajouter photo
-							</label>
-							<input type="file" id="newImage" name="image" accept="image/*" required>
-							<p>jpg, png : 4mo max</p>
+						<div class="add-icon">
+							<div id="add-icon">
+								<i class="fa-regular fa-image"></i>
+								<label for="newImage" class="custom-file-label">+ Ajouter photo
+								</label>
+								<input type="file" id="newImage" name="image" accept="image/*" required>
+								<p>jpg, png : 4mo max</p>
+							</div>
+							<div id="imagePreview" class="image-preview"></div>
 						</div>
 						<div class="title-cat">
 							<label for="newTitle">Titre</label>
 							<input type="text" id="newTitle" name="title" required>
 
 							<label for="newCategory">Catégorie</label>
-							<input type="text" id="newCategory" name="category" required>
+							<select id="newCategory" name="category" required>
+								<option value=""></option>
+								<option value="1">Objets</option>
+								<option value="2">Appartements</option>
+								<option value="3">Hôtels & restaurants</option>
+							</select>
 							<div class="line"></div>
 							<input type="submit" value="Valider">
 						</div>
@@ -104,52 +113,6 @@
 			</div>
 			</div>
 			<div class="gallery"></div>
-			<!-- <div class="gallery">
-				<figure class="gallery-item" data-category="objets">
-					<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-					<figcaption>Abajour Tahina</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="appartement">
-					<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-					<figcaption>Appartement Paris V</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="hotel-restaurant">
-					<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-					<figcaption>Restaurant Sushisen - Londres</figcaption>
-				</figure>
-				<figure class="gallery-item">
-					<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-					<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="objets">
-					<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-					<figcaption>Structures Thermopolis</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="appartement">
-					<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-					<figcaption>Appartement Paris X</figcaption>
-				</figure>
-				<figure class="gallery-item">
-					<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-					<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-				</figure>
-				<figure class="gallery-item">
-					<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola 'Elba">
-					<figcaption>Villa Ferneze - Isola d'Elba</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="appartement">
-					<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-					<figcaption>Appartement Paris XVIII</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="hotel-restaurant">
-					<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-					<figcaption>Bar “Lullaby” - Paris</figcaption>
-				</figure>
-				<figure class="gallery-item" data-category="hotel-restaurant">
-					<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-					<figcaption>Hotel First Arte - New Delhi</figcaption>
-				</figure>
-			</div> -->
 		</section>
 		<section id="contact">
 			<h2>Contact</h2>
@@ -173,14 +136,7 @@
 			</ul>
 		</nav>
 	</footer>
-	<script type="module" src="./assets/script.js"></script>
-	<script type="module" src="./assets/js/gallery.js"></script>
-	<script type="module" src="./assets/js/login.js"></script>
-	<script type="module" src="./assets/js/logout.js"></script>
-	<script type="module" src="./assets/js/displayManage.js"></script>
-	<script type="module" src="./assets/js/addModal.js"></script>
-
-
+	<script type="module" defer src="./js/script.js"></script>
 </body>
 
 </html>

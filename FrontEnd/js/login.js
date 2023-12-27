@@ -1,4 +1,4 @@
-async function makeAuthenticatedRequest(payload) {
+export async function makeAuthenticatedRequest(payload) {
     const url = "http://localhost:5678/api/users/login";
     const options = {
         method: "POST",
@@ -17,6 +17,7 @@ async function makeAuthenticatedRequest(payload) {
             console.log(data)
             sessionStorage.setItem("token", data.token)
             window.location.replace('../index.html');
+
         })
         .catch(err => {
             console.error(err);
@@ -24,22 +25,19 @@ async function makeAuthenticatedRequest(payload) {
         })
 }
 
-document.getElementById('loginButton').addEventListener('click', function () {
-    login();
-});
-
-async function login() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    const payload = {
-        "email": email,
-        "password": password
-    };
-    try {
-        await makeAuthenticatedRequest(payload);
-    } catch (error) {
-        console.error(error);
-        document.getElementById('error-message').style.display = 'block';
-    }
+export async function login(makeAuthenticatedRequest) {
+    document.getElementById('loginButton').addEventListener('click', async function () {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        const payload = {
+            "email": email,
+            "password": password
+        };
+        try {
+            await makeAuthenticatedRequest(payload);
+        } catch (error) {
+            console.error(error);
+            document.getElementById('error-message').style.display = 'block';
+        }
+    });
 }
-
