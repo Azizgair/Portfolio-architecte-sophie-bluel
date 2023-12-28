@@ -1,7 +1,7 @@
 import { login, makeAuthenticatedRequest } from './login.js';
 import { selectCategory, filterGallery, loadGalleryImages } from './gallery.js';
 import { logout } from './logout.js';
-import { closeEditModal, openEditModal, displayEditMode, previewImage } from './displayManage.js';
+import { closeEditModal, openEditModal, displayEditMode, previewImage, updateButtonColor } from './displayManage.js';
 import { openAddImageModal, closeAddImageModal, returnToEdit } from './addModal.js';
 import { addWorks } from "./addWorks.js";
 
@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Token NOT found ");
     }
 
+    login(makeAuthenticatedRequest);
     logout();
+    filterGallery("Tous");
     selectCategory(filterGallery);
     loadGalleryImages("figcaption", ".gallery", 'figcaption');
     openEditModal();
@@ -29,5 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
     closeAddImageModal(addImageModal);
     addWorks();
     previewImage();
+    updateButtonColor();
+    updateButtonColor();
 });
-login(makeAuthenticatedRequest);

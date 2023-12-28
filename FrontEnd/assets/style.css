@@ -208,7 +208,6 @@ h1>span {
 }
 
 h2,
-button,
 a {
 	font-family: 'Syne';
 	font-weight: 700;
@@ -353,7 +352,8 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"],
+#contact input[type="submit"],
+.input_color,
 .login-form button,
 .modal-content button {
 	font-family: 'Syne';
@@ -476,10 +476,6 @@ i.fas.fa-trash-can {
 	display: flex;
 }
 
-#addImageForm input[type="submit"] {
-	background: #A7A7A7;
-	border-color: #A7A7A7;
-}
 
 i.fa-regular.fa-image {
 	color: #B9C5CC;
@@ -532,4 +528,13 @@ i.fa-regular.fa-image {
 	width: 115px;
 	text-align: center;
 	border-radius: 60px;
+}
+
+.input_color {
+	background: #A7A7A7;
+	border-color: #A7A7A7;
+}
+
+.valid-button {
+	background-color: var(--main-color);
 }

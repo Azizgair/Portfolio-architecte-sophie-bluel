@@ -5,22 +5,22 @@ export function selectCategory(filterFunction) {
         category.addEventListener("click", () => {
             categories.forEach(c => c.classList.remove("active"));
             category.classList.add("active");
-            filterFunction(category.dataset.category);
+            filterFunction(category.dataset.id);
         });
     });
 }
 
-export function filterGallery(category) {
+export function filterGallery(categoryId) {
     const allItems = document.querySelectorAll(".gallery-item");
     allItems.forEach(item => {
         item.style.display = "none";
     });
-    if (category === "Tous") {
+    if (categoryId === "0") {
         allItems.forEach(item => {
             item.style.display = "block";
         });
     } else {
-        const filteredItems = document.querySelectorAll(`.gallery-item[data-category="${category}"]`);
+        const filteredItems = document.querySelectorAll(`.gallery-item[data-id="${categoryId}"]`);
         filteredItems.forEach(item => {
             item.style.display = "block";
         });

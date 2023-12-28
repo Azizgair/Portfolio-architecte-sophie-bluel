@@ -14,7 +14,7 @@ export async function loadGalleryImages(actionType, selection, elem) {
         works.forEach(work => {
             const figure = document.createElement("figure");
             figure.classList.add("gallery-item");
-            figure.dataset.id = work.id;
+            figure.dataset.id = work.categoryId;
             const img = document.createElement("img");
             img.src = work.imageUrl;
             img.alt = work.title;

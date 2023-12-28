@@ -34,12 +34,10 @@ export function closeEditModal() {
 
 export function previewImage() {
     document.getElementById('addImageForm').addEventListener('change', function () {
-        console.log("previewImage() is called");
         document.getElementById('add-icon').style.display = 'none';
         var newImage = document.getElementById('newImage');
         var imagePreview = document.getElementById('imagePreview')
         var file = newImage.files[0];
-        console.log(file);
         if (file) {
             var reader = new FileReader();
             reader.onload = function (e) {
@@ -49,3 +47,25 @@ export function previewImage() {
         }
     });
 }
+
+export function updateValiderButtonState() {
+    const newImageInput = document.getElementById('newImage');
+    const newCategorySelect = document.getElementById('newCategory');
+    const validerButton = document.querySelector('#addImageForm input[type="submit"]');
+    const newTitleInput = document.getElementById('newTitle');
+    const isImageSelected = newImageInput.files.length > 0;
+    const isCategorySelected = newCategorySelect.value !== "";
+    const isTitleEntered = newTitleInput.value.trim() !== "";
+    if (isImageSelected && isCategorySelected && isTitleEntered) {
+        validerButton.classList.add('valid-button');
+    } else {
+        validerButton.classList.remove('valid-button');
+    }
+}
+export function updateButtonColor() {
+    document.getElementById('newImage').addEventListener('change', updateValiderButtonState);
+    document.getElementById('newCategory').addEventListener('change', updateValiderButtonState);
+    document.getElementById('newTitle').addEventListener('input', updateValiderButtonState);
+    document.getElementById('newImage').addEventListener('input', updateValiderButtonState);
+}
+
