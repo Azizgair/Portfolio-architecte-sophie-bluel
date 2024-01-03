@@ -1,7 +1,6 @@
 import { loadGalleryImages } from "./dataFetch.js";
 
 export async function displayEditMode() {
-    console.log("Your are in edit mode ");
     document.getElementById('read-mode').style.display = 'none';
     document.getElementById('edit-mode').style.display = 'flex';
     document.getElementById('edit-header').style.display = 'flex';

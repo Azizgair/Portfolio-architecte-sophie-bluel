@@ -21,9 +21,8 @@ export function addWorks() {
             },
             body: formData,
         })
-            //.then(response => response.json())
             .then(response => {
-                console.log('Response status:', response.status);
+                //console.log('Response status:', response.status);
                 return response.json();
             })
             .then(data => {

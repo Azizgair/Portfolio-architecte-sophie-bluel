@@ -1,4 +1,9 @@
-export async function makeAuthenticatedRequest(payload) {
+document.addEventListener("DOMContentLoaded", function () {
+    login(makeAuthenticatedRequest);
+
+});
+
+function makeAuthenticatedRequest(payload) {
     const url = "http://localhost:5678/api/users/login";
     const options = {
         method: "POST",
@@ -14,7 +19,6 @@ export async function makeAuthenticatedRequest(payload) {
             else throw new Error("Authentication failed");
         })
         .then((data) => {
-            console.log(data)
             sessionStorage.setItem("token", data.token)
             window.location.replace('../index.html');
 
@@ -25,7 +29,7 @@ export async function makeAuthenticatedRequest(payload) {
         })
 }
 
-export async function login(makeAuthenticatedRequest) {
+async function login(makeAuthenticatedRequest) {
     document.getElementById('loginButton').addEventListener('click', async function () {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;

@@ -1,4 +1,3 @@
-import { login, makeAuthenticatedRequest } from './login.js';
 import { selectCategory, filterGallery, loadGalleryImages } from './gallery.js';
 import { logout } from './logout.js';
 import { closeEditModal, openEditModal, displayEditMode, previewImage, updateButtonColor } from './displayManage.js';
@@ -11,15 +10,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const addImageModal = document.getElementById('addImageModal');
 
     if (storedToken) {
-        console.log("Token found:", storedToken);
+        //console.log("Token found:", storedToken);
         displayEditMode();
 
     }
     else if (!storedToken) {
-        console.log("Token NOT found ");
+        // console.log("Token NOT found ");
     }
 
-    login(makeAuthenticatedRequest);
     logout();
     filterGallery("Tous");
     selectCategory(filterGallery);

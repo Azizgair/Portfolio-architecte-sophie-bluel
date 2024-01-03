@@ -14,12 +14,12 @@ export function deleteImage(imageId) {
     })
         .then(response => {
             if (response.ok) {
-                console.log(`Image with ID ${imageId} deleted successfully from the API.`);
+                console.log(`Image successfully deleted.`);
             } else {
-                console.error(`Failed to delete image with ID ${imageId} from the API.`);
+                console.error(`Failed to delete image.`);
             }
         })
         .catch(error => {
-            console.error('Error deleting image from the API:', error);
+            console.error('Error deleting image ', error);
         });
 }
